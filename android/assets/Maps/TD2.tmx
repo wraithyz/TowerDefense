@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="10" tilewidth="128" tileheight="128" nextobjectid="7">
+ <tileset firstgid="1" name="Grass" tilewidth="128" tileheight="128" spacing="2">
+  <image source="../../../../Platformer/android/assets/TD2/racing-pack/PNG/Tiles/Grass/Grass.png" width="1024" height="512"/>
+ </tileset>
+ <layer name="Background" width="15" height="10">
+  <data encoding="base64" compression="zlib">
+   eJyNUDEKAEAIsrn///emg5DUhqhQRG0AFabHFN2Tk7bCnE7CO2DsfeO6bKyhfDH/8jtt1ZviXvy5rlL2q5ePPdOhA3E=
+  </data>
+ </layer>
+ <layer name="Road" width="15" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhZQAgP5oCq4cchz4ID8wCxAFQvJxALY1GDC3Ci6RXAoxabXi6o25hJ1CuI5j4mEvQSAwDx9wHZ
+  </data>
+ </layer>
+ <objectgroup name="Collision">
+  <object id="1" name="road" x="0" y="576.25">
+   <polyline points="0,0 955.25,7.25 955.25,380 1222.75,379.75 1223.25,2 1919.75,6.5 1919.75,127.5 1348.25,132.5 1343.25,511.25 835,507.75 835,129.75 1,127.75 0,-1.25"/>
+  </object>
+  <object id="5" name="start" x="7" y="630" width="19" height="19"/>
+  <object id="6" name="end" x="1904" y="635" height="7"/>
+ </objectgroup>
+</map>

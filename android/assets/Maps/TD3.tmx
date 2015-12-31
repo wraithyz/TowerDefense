@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="10" tilewidth="128" tileheight="128" nextobjectid="9">
+ <tileset firstgid="1" name="Grass" tilewidth="128" tileheight="128" spacing="2">
+  <image source="../TD2/racing-pack/PNG/Tiles/Grass/Grass.png" width="1024" height="512"/>
+ </tileset>
+ <layer name="Background" width="15" height="10" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJyNkEEKADEIA83Z//+3vSwsQ6I9BETNENJVpav+SZhl9o29jI+//E/zxOKN2ljkpByOt/ldvnTfupw8U9bEdrlS9y+81NOnAzuYA4U=
+  </data>
+ </layer>
+ <layer name="navigation" width="15" height="10">
+  <properties>
+   <property name="walkable" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYBh6QAgL5kCS58ehBoRZ0DAPEAsg6eUEYmEs6liwuIMTi14BLOqwAZBaLiR3MZOgVxCL25iI1EsvAABUkgHZ
+  </data>
+ </layer>
+ <objectgroup name="Collision" visible="0">
+  <object id="2" name="road" x="0" y="448">
+   <polyline points="0,0 696,10.6667 698.667,373.333 1093.33,376 1098.67,4 1917.33,6.66667 1917.33,125.333 1221.33,128 1218.67,510.667 573.333,504 577.333,132 1.33333,129.333 0,1.33333"/>
+  </object>
+  <object id="3" name="start" x="40" y="506.667"/>
+  <object id="6" name="end" x="1897.33" y="458.667" width="16" height="114.667"/>
+ </objectgroup>
+</map>

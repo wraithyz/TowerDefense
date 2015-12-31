@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="6" tilewidth="128" tileheight="128" nextobjectid="1">
+ <tileset firstgid="1" name="Grass" tilewidth="128" tileheight="128" spacing="2">
+  <image source="../TD2/TownDownAssetPack-By@CamTatz/Grass/Grass.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="50" name="Grass" tilewidth="129" tileheight="128" spacing="2">
+  <image source="../TD2/TownDownAssetPack-By@CamTatz/Retardedgrass/Grass.png" width="1024" height="512"/>
+ </tileset>
+ <tileset firstgid="71" name="Land_DirtGrass (29)" tilewidth="128" tileheight="128">
+  <image source="../TD2/TownDownAssetPack-By@CamTatz/Retardedgrass/Land_DirtGrass (29).png" width="129" height="128"/>
+ </tileset>
+ <layer name="Grass" width="10" height="6">
+  <data encoding="base64" compression="zlib">
+   eJyTZ2BgcAdiDjTsjCYuD8TqDJhAHE0cpFYAyhYDYj0o2wRNHJ8ZyOJqSFgDiBXQxGDi8kRiAFciBWA=
+  </data>
+ </layer>
+ <layer name="Road" width="10" height="6">
+  <data encoding="base64" compression="zlib">
+   eJxjYCANcKJhdHFkPj42PjPQxakJAE78AJE=
+  </data>
+ </layer>
+</map>

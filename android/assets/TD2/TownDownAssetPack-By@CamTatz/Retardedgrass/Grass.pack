@@ -1,0 +1,89 @@
+
+Grass.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Land_DirtGrass (11)
+  rotate: false
+  xy: 1, 261
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (12)
+  rotate: false
+  xy: 1, 131
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (15)
+  rotate: false
+  xy: 132, 261
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (17)
+  rotate: false
+  xy: 1, 1
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (23)
+  rotate: false
+  xy: 132, 131
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (24)
+  rotate: false
+  xy: 263, 261
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (29)
+  rotate: false
+  xy: 132, 1
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (3)
+  rotate: false
+  xy: 263, 131
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (30)
+  rotate: false
+  xy: 394, 261
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (31)
+  rotate: false
+  xy: 263, 1
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (5)
+  rotate: false
+  xy: 394, 131
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+Land_DirtGrass (6)
+  rotate: false
+  xy: 525, 261
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1

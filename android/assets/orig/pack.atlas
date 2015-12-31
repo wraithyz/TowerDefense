@@ -1,0 +1,279 @@
+
+pack.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+LandDirtGrass (10)
+  rotate: false
+  xy: 264, 594
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (11)
+  rotate: false
+  xy: 2, 854
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (12)
+  rotate: false
+  xy: 2, 724
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (13)
+  rotate: false
+  xy: 395, 724
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (14)
+  rotate: false
+  xy: 526, 854
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (15)
+  rotate: false
+  xy: 133, 854
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (16)
+  rotate: false
+  xy: 2, 204
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (17)
+  rotate: false
+  xy: 2, 594
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (18)
+  rotate: false
+  xy: 133, 334
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (19)
+  rotate: false
+  xy: 264, 464
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (2)
+  rotate: false
+  xy: 394, 594
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (20)
+  rotate: false
+  xy: 525, 724
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (21)
+  rotate: false
+  xy: 656, 854
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (22)
+  rotate: false
+  xy: 2, 74
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (23)
+  rotate: false
+  xy: 133, 724
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (24)
+  rotate: false
+  xy: 264, 854
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (25)
+  rotate: false
+  xy: 132, 204
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (26)
+  rotate: false
+  xy: 263, 334
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (27)
+  rotate: false
+  xy: 394, 464
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (28)
+  rotate: false
+  xy: 524, 594
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (29)
+  rotate: false
+  xy: 2, 464
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (3)
+  rotate: false
+  xy: 133, 594
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (30)
+  rotate: false
+  xy: 264, 724
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (31)
+  rotate: false
+  xy: 395, 854
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (32)
+  rotate: false
+  xy: 655, 724
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (33)
+  rotate: false
+  xy: 786, 854
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (34)
+  rotate: false
+  xy: 132, 74
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (35)
+  rotate: false
+  xy: 262, 204
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (36)
+  rotate: false
+  xy: 393, 334
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (4)
+  rotate: false
+  xy: 524, 464
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (5)
+  rotate: false
+  xy: 2, 334
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (6)
+  rotate: false
+  xy: 133, 464
+  size: 129, 128
+  orig: 129, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (7)
+  rotate: false
+  xy: 654, 594
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (8)
+  rotate: false
+  xy: 785, 724
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+LandDirtGrass (9)
+  rotate: false
+  xy: 262, 74
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+carblacksmall3
+  rotate: false
+  xy: 916, 912
+  size: 39, 70
+  orig: 39, 70
+  offset: 0, 0
+  index: -1
+carred3
+  rotate: false
+  xy: 392, 201
+  size: 70, 131
+  orig: 70, 131
+  offset: 0, 0
+  index: -1
+carred3right
+  rotate: false
+  xy: 2, 2
+  size: 131, 70
+  orig: 131, 70
+  offset: 0, 0
+  index: -1
+earlydesign
+  rotate: false
+  xy: 523, 398
+  size: 32, 64
+  orig: 32, 64
+  offset: 0, 0
+  index: -1
