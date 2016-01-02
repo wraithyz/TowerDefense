@@ -2,6 +2,8 @@ package com.mygdx.towerdefense.screens;
 
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
@@ -15,6 +17,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
@@ -27,13 +30,14 @@ import com.mygdx.towerdefense.pathfinding.FlatTiledNode;
 import com.mygdx.towerdefense.scenes.Hud;
 import com.mygdx.towerdefense.sprites.Enemy;
 import com.mygdx.towerdefense.sprites.SpawnSystem;
+import com.mygdx.towerdefense.sprites.Turret;
 
-public class PlayScreen implements Screen
+public class PlayScreen extends InputAdapter implements Screen
 {
 
     private TowerDefense game;
 
-    private OrthographicCamera gamecam;
+    private OrthographicCamera gameCam;
     private FitViewport gamePort;
     private Hud hud;
 
@@ -55,10 +59,14 @@ public class PlayScreen implements Screen
     private int endPosX;
     private int endPosY;
 
+    private Turret turret;
     private SpawnSystem spawnSystem;
 
     // Sounds.
     Music music;
+
+    Vector3 touchPoint;
+
 
     public static final float TILESIZE = 32f;
 
@@ -66,8 +74,9 @@ public class PlayScreen implements Screen
     {
         this.game = game;
 
-        gamecam = new OrthographicCamera();
-        gamePort = new FitViewport(TowerDefense.V_WIDTH / TowerDefense.PPM, TowerDefense.V_HEIGHT / TowerDefense.PPM, gamecam);
+
+        gameCam = new OrthographicCamera();
+        gamePort = new FitViewport(TowerDefense.V_WIDTH / TowerDefense.PPM, TowerDefense.V_HEIGHT / TowerDefense.PPM, gameCam);
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
@@ -80,19 +89,24 @@ public class PlayScreen implements Screen
         currPath = navigationMap.findPath(new Tile(startPosX, startPosY), new Tile(endPosX, endPosY));
 
         renderer = new OrthogonalTiledMapRenderer(map, 1 / TowerDefense.PPM);
-        gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
+        gameCam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
 
         world = new World(new Vector2(0, 0), true);
         b2dr = new Box2DDebugRenderer();
 
+        turret = new Turret();
+
+        touchPoint = new Vector3();
         spawnSystem = new SpawnSystem(currPath, startPosX, startPosY);
+
+        Gdx.input.setInputProcessor(this);
 
         game.manager.load("music/sanic.mp3", Music.class);
         game.manager.finishLoading();
 
         music = game.manager.get("music/sanic.mp3", Music.class);
         music.setLooping(true);
-        music.play();
+        //music.play();
 
         //new WorldCreator(world, map, enemy);
     }
@@ -150,9 +164,15 @@ public class PlayScreen implements Screen
 
     }
 
+    public void handleInput()
+    {
+
+    }
+
     public void update(float dt)
     {
         world.step(1 / 60f, 6, 2);
+        handleInput();
         spawnSystem.update(dt);
         if (spawnSystem.getEnemies() != null)
         {
@@ -162,8 +182,8 @@ public class PlayScreen implements Screen
             }
         }
 
-        gamecam.update();
-        renderer.setView(gamecam);
+        gameCam.update();
+        renderer.setView(gameCam);
 
     }
 
@@ -176,7 +196,7 @@ public class PlayScreen implements Screen
 
         renderer.render();
 
-        b2dr.render(world, gamecam.combined);
+        b2dr.render(world, gameCam.combined);
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
@@ -196,6 +216,10 @@ public class PlayScreen implements Screen
                     spawnSystem.removeItem(i);
                 }
             }
+        }
+        if (turret.getSprite() != null)
+        {
+            game.batch.draw(turret.getTexture(), turret.getPosition().x, turret.getPosition().y);
         }
         game.batch.end();
     }
@@ -252,4 +276,57 @@ public class PlayScreen implements Screen
         world.dispose();
         game.dispose();
     }
+
+    @Override
+    public boolean touchDown(int screenX, int screenY, int pointer, int button)
+    {
+        gameCam.unproject(touchPoint.set(screenX, screenY, 0));
+        touchPoint.x *= TowerDefense.PPM;
+        touchPoint.y *= TowerDefense.PPM;
+        if (button == Input.Buttons.LEFT && turret.isSelected())
+        {
+            //TODO: Check if allowed (turret not top of road)
+            if (touchPoint.x < TowerDefense.V_HEIGHT && touchPoint.y < TowerDefense.V_HEIGHT)
+            {
+                System.out.println("Turret planted");
+                turret.setSelected(false);
+                turret.setMovable(false);
+            }
+        }
+        else if (button == Input.Buttons.LEFT &&
+                turret.getSprite().getBoundingRectangle().contains(touchPoint.x, touchPoint.y) && !turret.isSelected())
+        {
+            System.out.println("Selected turret.");
+            turret.setSelected(true);
+            turret.setMovable(true);
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean mouseMoved (int screenX, int screenY)
+    {
+        if (turret.isSelected())
+        {
+            gameCam.unproject(touchPoint.set(screenX, screenY, 0));
+            touchPoint.x *= TowerDefense.PPM;
+            touchPoint.y *= TowerDefense.PPM;
+            turret.setPosition(touchPoint.x - turret.getSprite().getWidth() / 2, touchPoint.y - turret.getSprite().getHeight() / 2);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean touchUp(int screenX, int screenY, int pointer, int button)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean touchDragged(int screenX, int screenY, int pointer)
+    {
+        return false;
+    }
+
 }
