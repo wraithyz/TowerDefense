@@ -10,11 +10,9 @@ import com.mygdx.towerdefense.screens.PlayScreen;
 
 import static com.mygdx.towerdefense.TowerDefense.PPM;
 
-public class Enemy implements Enemies
+public class Enemy extends Sprite
 {
-    private Texture texture;
-    private Sprite enemy;
-    public float speed = 200f;
+    private float speed;
     private Vector2 position;
     private Array<FlatTiledNode> currPath;
     private boolean spawned;
@@ -24,13 +22,14 @@ public class Enemy implements Enemies
     private int startPosX;
     private int startPosY;
 
-    public Enemy(Array<FlatTiledNode> currPath, int startPosX, int startPosY, Texture texture, Sprite sprite)
+    public Enemy(Array<FlatTiledNode> currPath, int startPosX, int startPosY, Texture texture, Sprite sprite, float speed)
     {
         this.currPath = currPath;
         this.startPosX = startPosX;
         this.startPosY = startPosY;
-        this.texture = texture;
-        this.enemy = sprite;
+        this.speed = speed;
+        set(sprite);
+        setTexture(texture);
         spawned = false;
         pathIndex = 0;
     }
@@ -43,7 +42,7 @@ public class Enemy implements Enemies
             position = new Vector2();
             position.x = startPosX;
             position.y = startPosY * PlayScreen.TILESIZE * PPM + PlayScreen.TILESIZE;
-
+            //setOrigin(getWidth() / 2f, 0);
             spawned = true;
 
         }
@@ -76,8 +75,12 @@ public class Enemy implements Enemies
             {
                 horizontalDirection = 1;
             }
-
-
+/*
+            if((horizontalDirection == 1 && getScaleX() < 0) || (horizontalDirection == -1 && getScaleX() > 0))
+            {
+                setScale(getScaleX()*-1f, getScaleY());
+            }
+*/
             if ((horizontalDirection == 1 && position.x + speed * dt > pointTo.x) ||
                     (horizontalDirection == -1 && position.x - speed * dt < pointTo.x) ||
                     (verticalDirection == 1 && position.y + speed * dt > pointTo.y) ||
@@ -94,23 +97,15 @@ public class Enemy implements Enemies
                 position.x += horizontalDirection * speed * dt;
                 position.y += verticalDirection * speed * dt;
             }
+            setPosition(position.x, position.y);
+            rotate(2f);
         }
         else
         {
             toBeRemoved = true;
         }
     }
-    public Texture getTexture()
-    {
-        return texture;
-    }
 
-    public Sprite getEnemy()
-    {
-        return enemy;
-    }
-
-    @Override
     public Vector2 getPosition()
     {
         return position;
@@ -121,11 +116,6 @@ public class Enemy implements Enemies
         return toBeRemoved;
     }
 
-    @Override
-    public void dispose()
-    {
-        texture.dispose();
-    }
 
 }
 

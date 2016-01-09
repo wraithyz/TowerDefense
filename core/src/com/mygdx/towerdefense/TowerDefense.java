@@ -6,14 +6,16 @@ import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.towerdefense.screens.PlayScreen;
 
-//TODO: Vihulaisten spawnaaminen.
+//DONE: Vihulaisten spawnaaminen.
 //TODO: Käännä viholliset katsomaan oikeeseen suuntaan
 //TODO: Android näyttää tile reunat, korjaa.
-//TODO: HUD (Overlap2d:lla???)
-//TODO: Turrettien rakentaminen.
+//TODO: HUD
+//TODO: Turrettien rakentaminen + sijainnin tarkistus
+//TODO: Turret ampuminen
+//TODO: Vihulaisten helat
 //TODO: Main menu scene
-//TODO: Paremmat artit
-//TODO: Musiikki (low prio)
+//TODO: Paremmat artit DONE???
+//DONE: Musiikki (thanks johannes 4Head)
 //TODO: Erilaisia vihullisia?
 //TODO: Blockade
 //TODO: xD

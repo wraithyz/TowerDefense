@@ -74,13 +74,12 @@ public class PlayScreen extends InputAdapter implements Screen
     {
         this.game = game;
 
-
         gameCam = new OrthographicCamera();
         gamePort = new FitViewport(TowerDefense.V_WIDTH / TowerDefense.PPM, TowerDefense.V_HEIGHT / TowerDefense.PPM, gameCam);
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("Maps/uusi.tmx");
+        map = mapLoader.load("Maps/Space/testtmx.tmx");
         TiledMapTileLayer layer = (TiledMapTileLayer)map.getLayers().get("Road");
         findPoints(map.getLayers().get("Point").getObjects());
         tiledWorld = new TiledWorld(layer);
@@ -108,7 +107,6 @@ public class PlayScreen extends InputAdapter implements Screen
         music.setLooping(true);
         //music.play();
 
-        //new WorldCreator(world, map, enemy);
     }
 
     public void findPoints(MapObjects objects)
@@ -117,7 +115,7 @@ public class PlayScreen extends InputAdapter implements Screen
         {
             Rectangle pos = ((RectangleMapObject) object).getRectangle();
 
-            if (object.getName().equals("Start"))
+            if (object.getName().equals("start"))
             {
                 if (pos.getX() == 0)
                 {
@@ -136,7 +134,7 @@ public class PlayScreen extends InputAdapter implements Screen
                     startPosY = (int) pos.getY() / 128;
                 }
             }
-            else if (object.getName().equals("End"))
+            else if (object.getName().equals("end"))
             {
                 if (pos.getX() == 0)
                 {
@@ -209,10 +207,11 @@ public class PlayScreen extends InputAdapter implements Screen
                 Enemy e = spawnSystem.getEnemies().get(i);
                 if (!e.isToBeRemoved())
                 {
-                    game.batch.draw(e.getTexture(), e.getPosition().x, e.getPosition().y);
+                    game.batch.draw(e, e.getPosition().x, e.getPosition().y, e.getOriginX(), e.getOriginY(), e.getWidth(), e.getHeight(), e.getScaleX(), e.getScaleY(), e.getRotation() + 5);
                 }
                 else
                 {
+                    System.out.println("Removed: " + i);
                     spawnSystem.removeItem(i);
                 }
             }
@@ -294,7 +293,7 @@ public class PlayScreen extends InputAdapter implements Screen
             }
         }
         else if (button == Input.Buttons.LEFT &&
-                turret.getSprite().getBoundingRectangle().contains(touchPoint.x, touchPoint.y) && !turret.isSelected())
+                turret.getSprite().getBoundingRectangle().contains(touchPoint.x, touchPoint.y) && !turret.isSelected() )
         {
             System.out.println("Selected turret.");
             turret.setSelected(true);

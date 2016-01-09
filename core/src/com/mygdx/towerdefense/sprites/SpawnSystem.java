@@ -18,12 +18,11 @@ public class SpawnSystem
 
     private float coolDown = 1f;
 
-    private int minionCount = 50;
+    private int minionCount = 10;
     private int currMinions;
 
     private Texture texture;
     private Sprite sprite;
-    private Enemy enemy;
 
     private int startPosX;
     private int startPosY;
@@ -32,7 +31,7 @@ public class SpawnSystem
 
     private ArrayList<Enemy> enemies;
 
-    private Array<String> minionList = new Array<String>();
+    private ArrayList<EnemyStats> minionList;
 
     public SpawnSystem(Array<FlatTiledNode> currPath, int startPosX, int startPosY)
     {
@@ -40,9 +39,14 @@ public class SpawnSystem
         this.startPosX = startPosX;
         this.startPosY = startPosY;
         enemies = new ArrayList<Enemy>();
+        minionList = new ArrayList<EnemyStats>();
         currMinions = minionCount;
-        minionList.add("good.png");
-        minionList.add("bad.png");
+
+        minionList.add(new EnemyStats(91, 91, 50, "Ufo Blue", "Enemies/ufoBlue.png"));
+        minionList.add(new EnemyStats(91, 91, 100, "Ufo Green", "Enemies/ufoGreen.png"));
+        minionList.add(new EnemyStats(91, 91, 150, "Ufo Red", "Enemies/ufoRed.png"));
+        minionList.add(new EnemyStats(91, 91, 200, "Ufo Yellow", "Enemies/ufoYellow.png"));
+
     }
 
     public void update (float deltaTime)
@@ -55,20 +59,19 @@ public class SpawnSystem
 
         if(coolDown == 0 && currMinions >= 0)
         {
-            spawnMinion(minionList.get(MathUtils.random(0, minionList.size - 1)), 112, 112);
+            spawnMinion(minionList.get(MathUtils.random(0, minionList.size() - 1)));
             coolDown = 1f;
         }
     }
 
-    private void spawnMinion(String file, int width, int height)
+    private void spawnMinion(EnemyStats enemyStats)
     {
-        FileHandle fileHandle = Gdx.files.internal(file);
+        FileHandle fileHandle = Gdx.files.internal(enemyStats.getFile());
         texture = new Texture(fileHandle);
-        sprite = new Sprite(texture, 0, 0, width, height);
+        sprite = new Sprite(texture, 0, 0, enemyStats.getWidth(), enemyStats.getHeight());
 
-        enemies.add(new Enemy(currPath, startPosX, startPosY, texture, sprite));
+        enemies.add(new Enemy(currPath, startPosX, startPosY, texture, sprite, enemyStats.getSpeed()));
         currMinions--;
-
     }
 
     public void setMinions(int minions)
@@ -84,7 +87,7 @@ public class SpawnSystem
     public void removeItem(int i)
     {
         // Disposing the texture.
-        enemies.get(i).dispose();
+        enemies.get(i).getTexture().dispose();
         enemies.remove(i);
     }
 

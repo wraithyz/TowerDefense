@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.ArrayList;
+
 public class Turret
 {
     private Texture texture;
@@ -19,8 +21,11 @@ public class Turret
     private int startPosX;
     private int startPosY;
 
+    private ArrayList<TurretStats> turretList;
+
     public Turret()
     {
+        turretList = new ArrayList<TurretStats>();
         FileHandle fileHandle = Gdx.files.internal("SpaceShooterRedux/PNG/Enemies/enemyBlack1.png");
         texture = new Texture(fileHandle);
         position = new Vector2(0, 0);
