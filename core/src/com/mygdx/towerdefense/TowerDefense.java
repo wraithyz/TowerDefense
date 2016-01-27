@@ -6,20 +6,6 @@ import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.towerdefense.screens.PlayScreen;
 
-//DONE: Vihulaisten spawnaaminen.
-//TODO: Käännä viholliset katsomaan oikeeseen suuntaan
-//TODO: Android näyttää tile reunat, korjaa.
-//TODO: HUD
-//TODO: Turrettien rakentaminen + sijainnin tarkistus
-//TODO: Turret ampuminen
-//TODO: Vihulaisten helat
-//TODO: Main menu scene
-//TODO: Paremmat artit DONE???
-//DONE: Musiikki (thanks johannes 4Head)
-//TODO: Erilaisia vihullisia?
-//TODO: Blockade
-//TODO: xD
-
 public class TowerDefense extends Game
 {
     public static final int V_WIDTH = 1280;
